@@ -21,7 +21,7 @@ import { TodosModule } from './todos/todos.module';
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true, // Set to false in production
+        synchronize: false, // Set to false in production
       }),
       inject: [ConfigService],
     }),
