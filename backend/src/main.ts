@@ -7,14 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: [
-      'https://todo-nestjs-vite.vercel.app', // Your Vercel frontend
-      'http://localhost:3000', // Local development
-      'http://localhost:5173', // Common Vite dev server port
-    ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    origin: 'https://todo-nestjs-vite.vercel.app',
     credentials: true,
-    allowedHeaders: 'Content-Type,Authorization',
   });
 
   // Global validation pipe
