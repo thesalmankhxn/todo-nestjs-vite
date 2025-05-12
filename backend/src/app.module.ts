@@ -15,11 +15,11 @@ import { TodosModule } from './todos/todos.module';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get('DATABASE_HOST'),
-        port: configService.get<number>('DATABASE_PORT'),
-        username: configService.get('DATABASE_USERNAME'),
-        password: configService.get('DATABASE_PASSWORD'),
-        database: configService.get('DATABASE_NAME'),
+        host: configService.get('POSTGRES_HOST'),
+        port: configService.get<number>('POSTGRES_PORT'),
+        username: configService.get('POSTGRES_USER'),
+        password: configService.get('POSTGRES_PASSWORD'),
+        database: configService.get('POSTGRES_DB'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true, // Set to false in production
       }),
