@@ -7,7 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: 'https://todo-nestjs-vite.vercel.app',
+    origin: [
+      'https://todo-nestjs-vite.vercel.app',
+      'https://todo-nestjs-vite-production.up.railway.app',
+    ],
     credentials: true,
   });
 
