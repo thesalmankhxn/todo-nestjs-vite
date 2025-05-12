@@ -4,8 +4,6 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 interface Todo {
   id: string;
   title: string;
@@ -17,6 +15,11 @@ interface Todo {
 export function TodoList() {
   const [newTodo, setNewTodo] = useState("");
   const queryClient = useQueryClient();
+
+  const API_URL =
+    import.meta.env.VITE_NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://todo-nestjs-vite-production.up.railway.app";
 
   const { data: todos = [], isLoading } = useQuery({
     queryKey: ["todos"],
