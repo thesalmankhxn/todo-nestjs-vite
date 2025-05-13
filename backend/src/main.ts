@@ -6,13 +6,7 @@ import * as process from 'process';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
-  app.enableCors({
-    origin: [
-      'https://todo-nestjs-vite.vercel.app',
-      'https://todo-nestjs-vite-production.up.railway.app',
-    ],
-    credentials: true,
-  });
+  app.enableCors();
 
   // Global validation pipe
   app.useGlobalPipes(
